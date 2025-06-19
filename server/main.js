@@ -92,7 +92,7 @@ app.get("/country/:iso", (req, res) => {
   let page = parseInt(req.query.page) || 0;
   if (pageSize === undefined || page === undefined || page <= 0) {
     page = 1;
-    pageSize = 80;
+    pageSize = 20;
   }
   const country = req.params.iso; // provide The 2-letter ISO 3166-1 code of the country
   let url = `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${process.env.API_KEY}&page=${page}&pageSize=${pageSize}`;
@@ -128,4 +128,3 @@ app.get("/country/:iso", (req, res) => {
 app.listen(3000, function () {
   console.log("Server is running at port 3000");
 });
-  
